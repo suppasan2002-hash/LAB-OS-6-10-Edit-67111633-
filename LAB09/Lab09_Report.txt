@@ -1,0 +1,25 @@
+======================================================
+COE67-222 Operating Systems - Lab 09 Report
+Name: Suppasan Natsathan
+Student ID: 67111633
+======================================================
+
+1. Inodes and Metadata
+
+Renaming a file with the Linux mv command on the same filesystem normally does not change its inode number.
+ The filename is a directory entry that points to the inode, while the inode stores the file's metadata
+  and location. If mv moves a file across filesystems, it may copy and delete the file instead,
+   which can result in a new inode.
+
+2. POSIX Permissions
+
+The octal permission number is 750. The owner has read, write, and execute permissions (7); 
+the group has read and execute permissions (5); and others have no permissions (0). In Python, 
+this can be set with os.chmod(filename, 0o750).
+
+3. The AI Context
+
+OS-level permissions are enforced by the kernel for processes that access the file. 
+They protect production model weights even if an application has a bug or mistakenly 
+tries to open the file for writing. Application-level checks and try-except blocks depend 
+on the program behaving correctly, so they should not be the only protection.

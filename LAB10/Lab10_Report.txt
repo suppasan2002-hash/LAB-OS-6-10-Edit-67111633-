@@ -1,0 +1,37 @@
+======================================================
+COE67-222 Operating Systems - Lab 10 Report (Final)
+Name: Suppasan Natsathan
+Student ID: 67111633
+======================================================
+
+1. The Role of the Operating System
+
+- File System & Permissions (Lab 9):
+  The _execute_job method checks whether the dataset exists with os.path.exists(dataset_path). 
+  Workload D failed because secret_keys.txt does not exist. The script reports “not found or Permission Denied,” 
+  but this run demonstrates the missing-file check rather than a permission check.
+
+- Memory Management (Labs 5/6):
+The while loop checks available RAM while holding ram_lock. A job waits until enough RAM is available, 
+then reserves the requested amount. This prevents the simulator from allocating more RAM than 
+the cluster has 
+and makes jobs wait instead of overcommitting memory.
+
+- Concurrency & Deadlocks (Labs 3/4):
+  The script sorts each job's GPU requests before acquiring the locks. All jobs therefore request GPUs 
+  in the same order, preventing circular wait and avoiding deadlock.
+
+2. Hardware Utilization
+
+The dashboard showed Workload A using 40 GB of RAM and GPUs 0, 1, and 2. Workload B used 16 GB of RAM 
+and ran on the CPU without requesting a GPU. Workload C used 2 GB of RAM and GPU 3, which was still available. 
+Their combined RAM use was 58 GB out of 64 GB, so all three workloads could run concurrently without exceeding the cluster's resources.
+ Workload D was rejected because its dataset file was missing.
+
+3. Course Reflection (AI Engineering Context)
+
+Understanding operating systems helps an MLOps Engineer run AI workloads reliably and efficiently.
+ Process queues and scheduling help manage competing jobs, while RAM limits help prevent over-allocation 
+ and thrashing. Deadlock avoidance keeps jobs from waiting indefinitely for GPUs, and file system checks 
+ and permissions protect important datasets and model files. These concepts make it easier to diagnose 
+ resource problems that cannot be solved by Python or PyTorch code alone.

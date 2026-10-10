@@ -1,0 +1,35 @@
+Operating Systems Lab 7 Report
+CPU Scheduling and AI Inference Scheduling
+
+Name: Suppasan Natsathan
+Student ID: 67111633
+
+1. CPU Scheduling Results
+
+The FCFS scheduler ran P1, P2, and P3 in order. The average waiting time was 7.33 time units, 
+and the average turnaround time was 12.33 time units.
+
+The Round Robin scheduler used a time quantum of 3. The average waiting time was 4.33 time units, 
+and the average turnaround time was 9.33 time units.
+
+2. Convoy Effect
+
+In FCFS, a long process can make shorter processes wait behind it. P1 has a CPU burst of 10, 
+so P2 and P3 cannot start until P1 finishes. This delay is called the convoy effect.
+
+3. Effect of Time Quantum
+
+A large time quantum makes Round Robin behave more like FCFS because each process 
+can run for a long time before switching. A very small quantum causes frequent context switches, 
+which adds overhead and reduces efficiency.
+
+4. AI Inference Scheduling
+
+In FCFS, User A generated all 10 tokens before User B began generating its 2 tokens. 
+In Round Robin, the scheduler switched between users after each token, so User B finished before User A.
+
+
+5. Conclusion
+
+Round Robin improves responsiveness for short AI requests by allowing them to make progress while longer 
+requests are still running. This reduces the time short requests wait for their first response token.

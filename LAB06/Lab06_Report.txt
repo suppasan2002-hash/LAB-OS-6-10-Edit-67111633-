@@ -1,0 +1,24 @@
+======================================================
+COE67-222 Operating Systems - Lab 06 Report
+Name: Suppasan Natsathan
+Student ID: 67111633
+======================================================
+
+1. FIFO vs. LRU (Phase 2):
+LRU performed better for the given reference string because it uses recent page access history. 
+When a page fault occurs and all frames are full, LRU evicts the page that has not been used 
+for the longest time. This keeps recently used pages in memory and resulted in fewer page 
+faults: FIFO had 9 faults, while LRU had 7.
+
+2. Understanding Thrashing (Phase 3):
+Thrashing occurs when the operating system spends too much time moving data between RAM and disk 
+instead of doing useful work. In my simulation, the RAM scenario took 0.9206 seconds, 
+while the disk swapping scenario took 2.4429 seconds. The disk scenario was about 2.65 times slower 
+because disk access and repeated file operations take longer than accessing data already in RAM.
+
+3. AI Engineering Decision:
+Lowering the batch_size reduces the amount of data and intermediate results that must fit in memory at one time.
+ This helps the active working data fit in RAM, reducing page faults and the need to swap data to disk.
+ As a result, the operating system can spend more time running the program and less time moving memory pages.
+
+======================================================

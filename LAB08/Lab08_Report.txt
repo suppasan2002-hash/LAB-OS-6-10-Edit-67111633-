@@ -1,0 +1,27 @@
+======================================================
+COE67-222 Operating Systems - Lab 08 Report
+Name: Suppasan Natsathan
+Student ID: 67111633
+======================================================
+
+1. Disk Scheduling (Phase 2)
+
+FCFS resulted in 640 cylinders of total head movement, while SCAN resulted in 331 cylinders. 
+FCFS handled requests in their arrival order, causing the disk head to move back and forth across the disk.
+ SCAN behaved like an elevator: it serviced requests while moving upward, continued to the end of the disk,
+  then reversed direction to service the remaining requests. This reduced the total head movement.
+
+2. I/O Bound Concept
+
+When a system is I/O bound, the CPU is mostly idle while the process waits for data to be read from or 
+written to storage. The CPU is not necessarily at 100% usage because the disk is the bottleneck.
+
+3. AI Industry Connection (Phase 3)
+
+Storing a dataset as many separate image files creates overhead because the OS must repeatedly open 
+and close files and look up their metadata. The disk also has to access data from many separate locations.
+ This can make the GPU wait for data.
+
+Packing the images into one large file allows the program to read data sequentially with fewer file operations. 
+In this test, reading 1,000 separate files took 0.0777 seconds, while reading 
+the packed file took 0.0015 seconds. The packed file was about 51.8 times faster in this run.
